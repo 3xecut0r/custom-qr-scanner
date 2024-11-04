@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- contact_qr_ocr/data/email_template_data.xml -->
+<odoo>
+    <data>
+        <record id="x_mail_template_contact_qr_ocr" model="mail.template">
+            <field name="name">Lead Thank You Email</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="email_from">${(user.email or 'noreply@example.com')|safe}</field>
+            <field name="email_to">${object.email_from|safe}</field>
+            <field name="subject">Thank You for Your Interest</field>
+            <field name="body_html" type="html">
+                <p>Dear ${object.name},</p>
+                <p>Thank you for attending our event! We hope you had a wonderful experience.</p>
+                <p>We appreciate your time and look forward to seeing you at future events.</p>
+                <p>Best Regards,<br/>The Team</p>
+            </field>
+        </record>
+    </data>
+</odoo>

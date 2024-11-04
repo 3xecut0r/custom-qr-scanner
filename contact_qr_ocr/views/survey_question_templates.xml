@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="question_scan_qr" name="Scan QR">
+        <div class="form-group col-sm mt16">
+            <p>Note: After you press the button, the camera will turn on and wait for a QR code (vCard). Once scanned, the fields will fill in automatically.</p>
+            <div class="form-group qr-code-scanner">
+                <button type="button" class="btn btn-primary btn-scan-qr">Scan QR</button>
+                <div id="qrModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">×</span>
+                        <h2>Scan QR Code</h2>
+                        <div id="reader" style="width: 300px; height: 300px;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="survey_question_upload_file" inherit_id="survey.question_container">
+        <xpath expr="//div[hasclass('text-muted', 'oe_no_empty')]" position="after">
+            <t t-if="question.question_type == 'qr_code'">
+                <t t-call="contact_qr_ocr.question_scan_qr">
+<!--                    <t t-set="res_model" t-value="'survey.user_input.line'"/>-->
+<!--                    <t t-set="res_id" t-value="'%s_%s_%s' % (survey.id, answer.id, question.id)"/>-->
+<!--                    <t t-set="max_file_size" t-value="question.max_file_size"/>-->
+<!--                    <t t-set="allow_multi_file" t-value="question.allow_multi_file and 'true' or 'false'"/>-->
+<!--                    <t t-set="show_delete" t-value="'true'"/>-->
+<!--                    <t t-set="show_download" t-value="'false'"/>-->
+                </t>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="survey_print_qr_code" inherit_id="survey.survey_page_print">
+        <xpath expr="//div[hasclass('js_question-wrapper')]" position="after">
+            <t t-if="question.question_type == 'qr_code'">
+                <t t-call="contact_qr_ocr.question_scan_qr">
+<!--                    <t t-set="file_input_name" t-value="question.id"/>-->
+<!--                    <t t-set="res_model" t-value="'survey.user_input.line'"/>-->
+<!--                    <t t-if="answer" t-set="res_id" t-value="'%s_%s_%s' % (survey.id, answer.id, question.id)"/>-->
+<!--                    <t t-set="max_file_size" t-value="question.max_file_size"/>-->
+<!--                    <t t-set="allow_multi_file" t-value="question.allow_multi_file and 'true' or 'false'"/>-->
+<!--                    <t t-set="show_delete" t-value="'false'"/>-->
+<!--                    <t t-set="show_download" t-value="'false'"/>-->
+                </t>
+            </t>
+        </xpath>
+    </template>
+</odoo>

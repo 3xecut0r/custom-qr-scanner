@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="survey_question_upload_file_form" model="ir.ui.view">
+        <field name="name">Form view for survey question Upload File </field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="survey.survey_question_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_preview_questions')]" position="inside">
+                <div invisible="question_type != 'qr_code'">
+                    <div class="o_preview_questions_choice"><i class="fa fa-align-justify fa-video-camera" role="img" aria-label="Scan QR" title="Scan QR"/> Scan QR</div>
+                </div>
+                <div invisible="question_type != 'x_ocr'">
+                    <div class="o_preview_questions_choice"><i class="fa fa-align-justify fa-video-camera" role="img" aria-label="Scan OCR" title="Scan OCR"/> Scan OCR</div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
