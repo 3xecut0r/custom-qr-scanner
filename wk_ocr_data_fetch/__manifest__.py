@@ -18,12 +18,11 @@
     "summary": """This module allows you to fetch data from your images which can be used to update or create new
   records in Odoo""",
     "category": "Productivity",
-    "version": "1.0.3",
-    "maintainer": "Anuj Kumar Chhetri(anujkumar.chhetri019@webkul.com)",
+    "version": "17.0.0.0.1",
     "sequence": 1,
-    "author": "Webkul Software Pvt. Ltd.",
+    "author": "Oleksii Panpukha",
     "license": "Other proprietary",
-    "website": "https://store.webkul.com/odoo-ocr-data-fetching.html",
+    "website": "https://github.com/3xecut0r",
     "description": """
   This module will provide the optical charater recognition(OCR) tool for the users to fetch data from the desired
   images and update or create new records in odoo. Tesseract module is used for this project.
